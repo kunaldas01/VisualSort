@@ -1,0 +1,197 @@
+:root{
+    --primary-color: #282828;
+    --secondary-color: #D1D7E0;
+    --dock-color: #222529;
+    --bar-color: #5F6366;
+}
+
+.light-theme{
+    --primary-color: #FFFFFF;
+    --secondary-color: #000;
+    --dock-color: #efeeee;
+}
+
+body {
+    background: var(--primary-color);
+    margin: auto; 
+    padding: 0px;
+    text-align: center;
+    font-family: UbuntuL;
+    color: var(--secondary-color);
+    display: grid;
+    grid-template-areas: "algo-info menu" "algo-info container";
+    grid-template-rows: 100px 1fr;
+    grid-template-columns: 25vw 1fr;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+#repository {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    transform: scale(2);
+    color: #a62eec;
+
+    transition: all 0.5s ease-in-out;
+}    
+
+a#repository:hover{
+    transform: scale(2.2);
+    text-shadow: 0 0 15px turquoise;
+}
+
+#icon{
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    width: 30px;
+    height: 30px;
+    transform: scale(1.3);
+
+    transition: all 0.5s ease-in-out;
+
+}
+
+#icon:hover{
+    transform:scale(1.5);
+    text-shadow: 0 0 30px turquoise;
+    color: rgb(194, 254, 28);
+}
+
+
+#algo-info {
+    grid-area: algo-info;
+    background: var(--dock-color);
+    height: 100%;
+    width: 100%;
+    padding: 100px 0px;
+}
+
+#algo-info .algo-details {
+    display: block;
+    padding: 25px;
+    text-align: justify;
+    text-indent: 50px;
+    line-height: 25px;
+    font-weight: bold;
+}
+
+#algo-info .algo-complexity {
+    display: block;
+}
+
+#algo-info .algo-complexity ul {
+    text-align: left;
+    list-style-type: disc;
+}
+
+#algo-info .algo-complexity ul .complexity-item {
+    font-weight: bold;
+    display: inline-block;
+    width: 170px;
+}
+#algo-info .algo-complexity ul .complexity-value {
+    padding: 5px;
+}
+
+#container {
+    grid-area: container;
+    width: 100%;
+    height: 100%;
+    border-top: #000 10px solid;
+}
+
+#bars {
+    margin: auto;
+    width: 1100px;
+    height: 500px;
+}
+
+.bar {
+    background: var(--bar-color);
+    display: inline-block;
+    box-shadow: 5px 3px rgb(160, 160, 160);
+    border-radius: 5px;
+    margin: 3px;
+    position: relative;
+    bottom: -100px;
+    vertical-align: bottom;
+    text-align: center;
+    font-weight: bold;
+}
+
+.compared {
+    transition: background-color ease-in 0.1s;
+    background: #77c9d4;
+}
+
+.done {
+    transition: background-color ease-in 0.1s;
+    background: #4BB543 ;
+}
+
+.red {
+    background: red;
+}
+
+#menu {
+    background: var(--dock-color);
+    grid-area: menu;
+    display: grid;
+    grid-template-areas: "sliders algos buttons" "sliders sort-order buttons";
+    grid-column-gap: 25px;
+    width: 100%;
+    height: 100px;
+    margin: auto;
+    padding: 0px;
+}
+
+#sliders {
+    grid-area: sliders;
+    margin: auto;
+    width: 300px;
+}
+
+#algos {
+    grid-area: algos;
+    align-items: center;
+    margin: auto;
+    width: 300px;
+}
+
+#sort-order {
+    grid-area: sort-order;
+}
+
+#buttons {
+    grid-area: buttons;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: auto;
+    width: 300px;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+@media screen and (max-width: 1000px) {
+    body {
+        grid-template-areas: "menu" "container" "algo-info";
+        grid-template-rows: 100px 1fr;
+        grid-template-columns: 100vw 1fr;
+    }
+
+    #algo-info {
+        padding: 10px 0px;
+    }
+}
